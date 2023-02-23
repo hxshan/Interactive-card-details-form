@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Card Details</title>
+</head>
+<body>
+    <main class="page-container">
+        <div class="card-container">
+            <img src="images/bg-card-back.png" alt="card background" class="background">
+            <span class="cvc-text">000</span>
+            <img src="images/bg-card-front.png" alt="card foreground" class="foreground">
+            <div class="big-circle"></div>
+            <div class="small-circle"></div>
+            <p class="cardnumber-text">
+                <span id="first">0000</span>
+             
+                <span id="second-sec">0000</span> 
+          
+                <span id="third-sec">0000</span>
+      
+                <span id="forth-sec">0000</span>
+            </p>
+            <p class="card-name">JOHN APPLESEED</p>
+            <p class="exp-date"><span class="exp-month">00</span>/<span class="exp-year">00</span></p>
+            
+        </div>
+        <div class="input-container">
+            <form action="">
+                <div class="input-field">
+                    <label for="name">CARDHOLDER NAME</label>
+                    <input type="text" name="Name" id="name" placeholder="John Doe">
+                    <span class="error hidden">Can't be empty</span>
+                </div>
+                <div class="input-field">
+                    <label for="card-number">CARD NUMBER</label>
+                    <input type="text"  name="cardnumber" id="card-number" placeholder="0000 0000 0000 0000" max="12">
+                    <span class="error hidden">Can't be blank</span>
+                </div>
+                <div class="label-sec">
+                    <label for="date">EXP . DATE (MM/YY)</label>
+                    <label id="cvv-in" for="cvv-in">CVV</label>
+                </div>
+                <div class="input-field" id="input-date">
+                <input type="text"  name="exp-month" id="exp-month-in" placeholder="MM" maxlength="2">
+                <input type="text"  name="exp-year" id="exp-year-in" placeholder="YY" maxlength="2">
+                <input type="text" class="cvv-in" name="cvv" id="cvv-in" placeholder="123" maxlength="3">
+                </div>
+                <div class="dates">
+                    <span class="error hidden" id="date-err">Can't be blank</span>
+                    <span class="error hidden" id="cvv-err">Can't be blank</span>
+                </div>
+                <button class="submit-btn" type="submit">Confirm</button>
+            </form>
+        </div>
+        
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
