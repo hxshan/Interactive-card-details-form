@@ -16,7 +16,8 @@ body{
     min-height: 100vh;
     background-image:url(images/bg-main-mobile.png);
     background-repeat: no-repeat;
-    background-position: -1% 0%;
+    background-position: 0% 0%;
+    background-size:contain;
     
 }
 .card-container{
@@ -185,4 +186,69 @@ div#input-date.input-field{
 }
 .submit-btn:hover{
     cursor: pointer;
+}
+@media screen and (min-width:1024px) {
+    .page-container{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 100vh;
+        background-image:url(images/bg-main-desktop.png);
+        background-repeat: no-repeat;       
+    }
+    .card-container{
+        margin-left: 12vw;
+    }
+    .card-container img{
+        width: 25rem;
+        height: auto;
+    }
+    .card-container img.foreground {
+        translate: 10% -100%;
+      }
+    .card-container img.background {
+        translate: 39% 114%;
+    }
+    .big-circle {
+        width: 38px;
+        height: 38px;
+        translate: -121px -177px;
+      }
+    .small-circle {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border: 1px solid white;
+        translate: -78px -174px;
+      }
+
+    .cardnumber-text {
+        font-size: 1.5rem;
+        translate: 45px -100px;
+    
+    }
+
+    .card-name {
+        
+        font-size: .9rem;
+        translate: -75px -40px;
+      }
+
+    .exp-date {
+ 
+      
+        font-size: .9rem;
+        translate: 168px -40px;
+      }
+
+    .cvc-text {
+        font-size: 1rem;
+        translate: 291px 138px;
+      }
+
+    .input-container{
+        margin-right: 12vw;
+    }
+
 }

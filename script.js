@@ -107,21 +107,28 @@ function validate () {
     }
 }   
 
+
+// change name on card  while it is entered
 card_holder_name.addEventListener('keyup',(e)=>{
     card_holder_name_text.innerText=card_holder_name.value
 })
 
+// add spaces and change card number while it is entered
 card_number.addEventListener('keyup',(e)=>{
     let number_string = card_number.value.toString().replace(/(.{4})/g,"$1 ")
     card_number_text.innerHTML=number_string
 })
 
 
+//same thing as above for expiry month
 exp_month.addEventListener('keyup',(e)=>{   
     let exp_month_text_temp = exp_month.value
-    if(parseInt(exp_month_text_temp) <=9 ) {       
+    if(parseInt(exp_month_text_temp) <=9 && !(/^[0][0-9]$/.test(exp_month.value)) ) {       
         exp_month_text_temp="0" + exp_month.value.toString()
         exp_month_text.innerText = exp_month_text_temp
+    }
+    else if(/^[0][0-9]$/.test(exp_month.value)){
+        exp_month_text.innerText = exp_month.value
     }
     else{
         exp_month_text_temp = exp_month.value
@@ -130,11 +137,15 @@ exp_month.addEventListener('keyup',(e)=>{
     
 })
 
+// same thing for expiry year
 exp_year.addEventListener('keyup',(e)=>{   
     let exp_year_text_temp = exp_year.value
-    if(parseInt(exp_year_text_temp) <=9 ) {       
+    if(parseInt(exp_year_text_temp) <=9 && !(/^[0][0-9]$/.test(exp_year.value))) {       
         exp_year_text_temp="0" + exp_year.value.toString()
         exp_year_text.innerText = exp_year_text_temp
+    }
+    else if(/^[0][0-9]$/.test(exp_year.value)){
+        exp_year_text.innerText = exp_year.value
     }
     else{
         exp_year_text_temp = exp_year.value
