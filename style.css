@@ -172,6 +172,11 @@ div#input-date.input-field{
     justify-content: space-between;
     font-size: .9rem;
 }
+.input-field{
+    letter-spacing: 0.2rem;
+}
+    
+
 .label-sec label#cvc-in-label{
     padding-right: 5.3rem;
 }
