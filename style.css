@@ -54,13 +54,25 @@ body{
     
     
 }
-.dates span#date-err{
-    position: absolute;
-    translate: 0px -3px;
+.date-con{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
-.dates span#cvv-err{
+.dates{
+    position: relative;
+    width: 20rem;
+    height: 2rem;
+}
+.dates span#date-err{ 
     position: absolute;
-    translate: 208px -2px;
+    padding:0;
+    left: 0;
+}
+.dates span#cvc-err{
+    position: absolute;
+    right:0;
+    padding:0;
 }
 .error{
     color: red;
@@ -143,21 +155,24 @@ body{
 #input-date input{
     max-width: 50px;
     margin-right: 1rem;
-   
+
 }
-#input-date input#cvv-in{
+div#input-date.input-field{
+    padding-bottom: 0rem;
+}
+#input-date input#cvc-in{
     max-width:100px;
     margin-right: 0rem;
-    margin-left: 2rem;
+    margin-left:4.5rem;
 }
 .label-sec{
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-between;
     font-size: .9rem;
 }
-.label-sec label#cvv-in{
-    margin: 0 4.3rem;
+.label-sec label#cvc-in-label{
+    padding-right: 5.3rem;
 }
 .submit-btn{
     padding: 1rem 8rem;
@@ -167,4 +182,7 @@ body{
     border-radius: 7px;
     font-family:'Space Grotesk',sans-serif;
     font-size: 1.2rem;
+}
+.submit-btn:hover{
+    cursor: pointer;
 }
