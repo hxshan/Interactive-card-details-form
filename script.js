@@ -2,6 +2,10 @@ const input_fields = document.querySelectorAll(".input-field")
 const submit_btn=document.querySelector(".submit-btn")
 const cardregex= /^[0-9]{16}$/;
 
+
+const thanks_con = document.querySelector(".thankyou-container")
+const input_container = document.querySelector(".input-container")
+
 //card holder name variables
 let card_holder_name = document.getElementById("name")
 let card_holder_name_text = document.querySelector(".card-name")
@@ -22,19 +26,20 @@ let cvc_text = document.querySelector(".cvc-text")
 
 //validate wether data is entered
 function validate () {
+    var valid = true;
 //card holder name check
     if(card_holder_name.value.trim()===''){
         let error=input_fields[0].getElementsByClassName("error")
         if(error[0].classList.contains("hidden")){
             error[0].classList.remove("hidden")
         }
-       
+       valid=false
     }else{
         let error=input_fields[0].getElementsByClassName("error")
         if(!error[0].classList.contains("hidden")){
             error[0].classList.add("hidden")
         }
-      
+      valid=true;
     }
 //number entered check
    if(card_number.value.trim()===''){
@@ -43,7 +48,7 @@ function validate () {
         if(error[0].classList.contains("hidden")){
             error[0].classList.remove("hidden")
         }
-       
+        valid=false;
         
     }
     else if(!cardregex.test(card_number.value.trim())){
@@ -52,14 +57,14 @@ function validate () {
         if(error[0].classList.contains("hidden")){
             error[0].classList.remove("hidden")
         }
-
+        valid=false;
     }
     else{
         let error=input_fields[1].getElementsByClassName("error")
         if(!error[0].classList.contains("hidden")){
             error[0].classList.add("hidden")
         }
-      
+        valid=false;
     }
  //Expiry date enterd check
 
@@ -70,9 +75,9 @@ function validate () {
 
         if(date_err.classList.contains("hidden")){
             date_err.classList.remove("hidden")
-      }
-   
-    
+        }
+      
+        valid=false
     }
 
     else
@@ -83,6 +88,7 @@ function validate () {
         if(!date_err.classList.contains("hidden")){
             date_err.classList.add("hidden")
         }    
+        valid=true
     }
     if((cvc.value.trim() === "")){
 
@@ -93,7 +99,7 @@ function validate () {
             cvc_err.classList.remove("hidden")
        }
     
-     
+       valid=false
      }
  
      else{
@@ -102,9 +108,10 @@ function validate () {
          if(!cvc_err.classList.contains("hidden")){
             cvc_err.classList.add("hidden")
          }
-  
-    
+         
+         valid=true
     }
+    return valid
 }   
 
 
@@ -161,5 +168,11 @@ cvc.addEventListener('keyup',(e)=>{
 
 submit_btn.addEventListener('click' ,(e)=>{
     e.preventDefault();
-    validate();
+    val=validate();
+    if(val){
+        input_container.classList.add("not-active")
+        thanks_con.classList.remove("not-active")
+    }
+    
+
 })
