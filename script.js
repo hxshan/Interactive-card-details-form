@@ -168,8 +168,8 @@ cvc.addEventListener('keyup',(e)=>{
 
 submit_btn.addEventListener('click' ,(e)=>{
     e.preventDefault();
-    val=validate();
-    if(val){
+    validate();
+    if(validate()){
         input_container.classList.add("not-active")
         thanks_con.classList.remove("not-active")
     }
