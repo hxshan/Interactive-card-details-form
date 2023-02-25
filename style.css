@@ -146,6 +146,7 @@ body{
     font-size: 1.2rem;   
     border-radius:.5rem;
     border:1px rgba(128, 128, 128, 0.482) solid;
+    color: rgba(0, 0, 0, 0.5);
 }
 #input-date{
     display: flex;
@@ -268,7 +269,6 @@ div#input-date.input-field{
     }
 
     .card-name {
-        
         font-size: .9rem;
         translate: -75px -40px;
       }
@@ -278,6 +278,9 @@ div#input-date.input-field{
       
         font-size: .9rem;
         translate: 168px -40px;
+    }
+    .label-sec label#cvc-in-label {
+        padding-right: 4.5rem;
       }
 
     .cvc-text {
@@ -287,7 +290,35 @@ div#input-date.input-field{
 
     .input-container{
         margin-right: 12vw;
+        width: 25rem;
+
     }
+    .input-container input{   
+        width: 25rem;
+    }
+    #input-date input{
+        max-width: 60px;
+        margin-right: .5rem;
+        margin-left: .5rem;
+    
+    }
+    #input-date input#cvc-in {
+        max-width: 100px;
+        margin-right: 0rem;
+        margin-left: 10vw;
+      }
+      .label-sec {
+        padding-bottom: .3rem;
+      }
+    .dates {
+        position: relative;
+        width: 25rem;
+        height: 2rem;
+      }
+      .submit-btn {
+        padding: 1rem 10.5rem;
+        margin-left: 2%;
+      }
     .thankyou-container{
         margin-right: 12vw;
     }
