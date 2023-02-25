@@ -226,7 +226,7 @@ div#input-date.input-field{
 .continue-btn:hover{
     cursor: pointer;
 }
-@media screen and (min-width:1024px) {
+@media screen and (min-width:1280px) {
     .page-container{
         display: flex;
         flex-direction: row;
@@ -289,7 +289,7 @@ div#input-date.input-field{
       }
 
     .input-container{
-        margin-right: 12vw;
+        margin-right:10vw;
         width: 25rem;
 
     }
@@ -302,10 +302,15 @@ div#input-date.input-field{
         margin-left: .5rem;
     
     }
+    .input-field#inputdate{
+        display: flex;
+        flex-direction: row;
+        width: 23rem;
+    }
     #input-date input#cvc-in {
         max-width: 100px;
-        margin-right: 0rem;
-        margin-left: 10vw;
+        position: relative;
+        right: -50%;
       }
       .label-sec {
         padding-bottom: .3rem;
@@ -316,8 +321,7 @@ div#input-date.input-field{
         height: 2rem;
       }
       .submit-btn {
-        padding: 1rem 10.5rem;
-        margin-left: 2%;
+        padding: 1rem 11rem;
       }
     .thankyou-container{
         margin-right: 12vw;
