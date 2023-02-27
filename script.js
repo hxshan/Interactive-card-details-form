@@ -26,20 +26,20 @@ let cvc_text = document.querySelector(".cvc-text")
 
 //validate wether data is entered
 function validate () {
-    var valid = true;
+    var valid_count =0;
 //card holder name check
     if(card_holder_name.value.trim()===''){
         let error=input_fields[0].getElementsByClassName("error")
         if(error[0].classList.contains("hidden")){
             error[0].classList.remove("hidden")
         }
-       valid=false
+       
     }else{
         let error=input_fields[0].getElementsByClassName("error")
         if(!error[0].classList.contains("hidden")){
             error[0].classList.add("hidden")
         }
-      valid=true;
+      valid_count++
     }
 //number entered check
    if(card_number.value.trim()===''){
@@ -48,7 +48,7 @@ function validate () {
         if(error[0].classList.contains("hidden")){
             error[0].classList.remove("hidden")
         }
-        valid=false;
+       
         
     }
     else if(!cardregex.test(card_number.value.trim())){
@@ -57,14 +57,14 @@ function validate () {
         if(error[0].classList.contains("hidden")){
             error[0].classList.remove("hidden")
         }
-        valid=false;
+        
     }
     else{
         let error=input_fields[1].getElementsByClassName("error")
         if(!error[0].classList.contains("hidden")){
             error[0].classList.add("hidden")
         }
-        valid=false;
+        valid_count++
     }
  //Expiry date enterd check
 
@@ -77,7 +77,7 @@ function validate () {
             date_err.classList.remove("hidden")
         }
       
-        valid=false
+        
     }
 
     else
@@ -88,20 +88,31 @@ function validate () {
         if(!date_err.classList.contains("hidden")){
             date_err.classList.add("hidden")
         }    
-        valid=true
+        valid_count++
     }
     if((cvc.value.trim() === "")){
 
         let dates_err_con=document.querySelector(".dates")
         let cvc_err=dates_err_con.querySelector("#cvc-err")
- 
+        cvc_err.innerText="Can't be blank"
          if(cvc_err.classList.contains("hidden")){
             cvc_err.classList.remove("hidden")
        }
     
-       valid=false
+       
      }
- 
+     else if((cvc.value.trim().length != 3)){
+        let dates_err_con=document.querySelector(".dates")
+        let cvc_err=dates_err_con.querySelector("#cvc-err")
+        cvc_err.innerText="Can't contain less than 3 numbers"
+    
+  
+        
+         if(cvc_err.classList.contains("hidden")){
+            cvc_err.classList.remove("hidden")
+       }
+
+     }
      else{
          let dates_err_con=document.querySelector(".dates")
          let cvc_err=dates_err_con.querySelector("#cvc-err")
@@ -109,9 +120,9 @@ function validate () {
             cvc_err.classList.add("hidden")
          }
          
-         valid=true
+         valid_count++
     }
-    return valid
+    return valid_count
 }   
 
 
@@ -169,10 +180,9 @@ cvc.addEventListener('keyup',(e)=>{
 submit_btn.addEventListener('click' ,(e)=>{
     e.preventDefault();
     validate();
-    if(validate()){
+    if(validate() >= 4){
         input_container.classList.add("not-active")
         thanks_con.classList.remove("not-active")
     }
     
-
 })
