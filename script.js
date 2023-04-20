@@ -68,18 +68,15 @@ function validate () {
     }
  //Expiry date enterd check
 
-    if((exp_year.value.trim() === "") || (exp_month.value.trim() === '' )){
+    if((exp_year.value.trim() === "") || (exp_month.value.trim() === '' )) {
 
        let dates_err_con=document.querySelector(".dates")
        let date_err=dates_err_con.querySelector("#date-err")
-
         if(date_err.classList.contains("hidden")){
             date_err.classList.remove("hidden")
         }
-      
-        
-    }
 
+    }  
     else
     {
 
@@ -90,6 +87,17 @@ function validate () {
         }    
         valid_count++
     }
+    if( ((exp_year.value.trim() === "") && parseInt((exp_month.value.trim())) >12 ) || parseInt((exp_month.value.trim())) >12 ) {
+        let dates_err_con=document.querySelector(".dates")
+        let date_err=dates_err_con.querySelector("#date-err")
+        date_err.innerText="Invalid month gona"
+
+        if(date_err.classList.contains("hidden")){
+            date_err.classList.remove("hidden")
+        }
+    }   
+
+    //CVC data check
     if((cvc.value.trim() === "")){
 
         let dates_err_con=document.querySelector(".dates")
@@ -101,6 +109,7 @@ function validate () {
     
        
      }
+     //CVC data format check
      else if((cvc.value.trim().length != 3)){
         let dates_err_con=document.querySelector(".dates")
         let cvc_err=dates_err_con.querySelector("#cvc-err")
@@ -148,6 +157,7 @@ exp_month.addEventListener('keyup',(e)=>{
     else if(/^[0][0-9]$/.test(exp_month.value)){
         exp_month_text.innerText = exp_month.value
     }
+  
     else{
         exp_month_text_temp = exp_month.value
         exp_month_text.innerText = exp_month_text_temp
